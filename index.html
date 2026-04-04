@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dan — Neoclassical Guitarist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">Dan</div>
+    <ul class="nav__links">
+      <li><a href="#bio">About</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav__burger" id="navBurger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav__mobile" id="navMobile">
+    <a href="#bio" class="nav__mobile-link">About</a>
+    <a href="#music" class="nav__mobile-link">Music</a>
+    <a href="#gallery" class="nav__mobile-link">Gallery</a>
+    <a href="#contact" class="nav__mobile-link">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__staff" aria-hidden="true">
+      <div class="staff-lines">
+        <div class="staff-line"></div>
+        <div class="staff-line"></div>
+        <div class="staff-line"></div>
+        <div class="staff-line"></div>
+        <div class="staff-line"></div>
+      </div>
+      <div class="staff-notes" aria-hidden="true">
+        <span class="note note--1">&#9833;</span>
+        <span class="note note--2">&#9834;</span>
+        <span class="note note--3">&#9835;</span>
+        <span class="note note--4">&#9833;</span>
+        <span class="note note--5">&#9834;</span>
+      </div>
+    </div>
+
+    <div class="hero__content fade-in">
+      <p class="hero__preheading">Guitarist &amp; Composer</p>
+      <h1 class="hero__name">Dan</h1>
+      <p class="hero__subtitle">Neoclassical Guitarist</p>
+      <a href="#bio" class="btn btn--gold">Explore My Work</a>
+    </div>
+
+    <div class="hero__scroll-indicator" aria-hidden="true">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- BIO -->
+  <section class="section bio" id="bio">
+    <div class="container">
+      <div class="section__label reveal">About</div>
+      <h2 class="section__heading reveal">The Artist</h2>
+
+      <div class="bio__card reveal">
+        <div class="bio__avatar" aria-label="Dan — Neoclassical Guitarist">D</div>
+        <div class="bio__text">
+          <p class="bio__intro">
+            Neoclassical guitar is where centuries of classical tradition meet the unbounded energy of modern music. It is a genre built on precision, emotion, and the relentless pursuit of beauty — and it is at the heart of everything Dan plays.
+          </p>
+          <p>
+            Dan's journey began with the great classical composers — Bach, Paganini, Vivaldi — and expanded outward into the electric landscape of contemporary guitar. Drawing on fingerstyle technique, counterpoint, and harmonic complexity, his music bridges two worlds with fluency and intention.
+          </p>
+          <p>
+            Whether performing sweeping arpeggiated passages reminiscent of a baroque concerto or driving riffs that pulse with modern intensity, Dan brings a singular voice to every note. His compositions are architectural — layered, deliberate, and expressive in ways that go beyond genre.
+          </p>
+          <p>
+            Based on the East Coast, Dan is currently developing his debut recordings and expanding his live performance catalogue. This portfolio is the beginning of something larger.
+          </p>
+          <div class="bio__tags">
+            <span class="tag">Neoclassical</span>
+            <span class="tag">Fingerstyle</span>
+            <span class="tag">Composer</span>
+            <span class="tag">Classical Technique</span>
+            <span class="tag">Electric Guitar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="section music" id="music">
+    <div class="container">
+      <div class="section__label reveal">Discography</div>
+      <h2 class="section__heading reveal">Music</h2>
+      <p class="section__sub reveal">New music coming soon. Stay tuned.</p>
+
+      <div class="cards music__cards">
+        <div class="card reveal">
+          <div class="card__placeholder">
+            <svg class="card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="4" y="14" width="40" height="4" rx="2" fill="currentColor" opacity="0.3"/>
+              <rect x="4" y="22" width="40" height="4" rx="2" fill="currentColor" opacity="0.5"/>
+              <rect x="4" y="30" width="40" height="4" rx="2" fill="currentColor" opacity="0.3"/>
+              <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+              <circle cx="24" cy="24" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card__body">
+            <div class="card__lock">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd"/></svg>
+            </div>
+            <h3 class="card__title">Untitled Track I</h3>
+            <p class="card__meta">Coming Soon</p>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card__placeholder">
+            <svg class="card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="4" y="18" width="8" height="12" rx="2" fill="currentColor" opacity="0.4"/>
+              <rect x="14" y="12" width="8" height="24" rx="2" fill="currentColor" opacity="0.6"/>
+              <rect x="24" y="8" width="8" height="32" rx="2" fill="currentColor" opacity="0.5"/>
+              <rect x="34" y="14" width="8" height="20" rx="2" fill="currentColor" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="card__body">
+            <div class="card__lock">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd"/></svg>
+            </div>
+            <h3 class="card__title">Untitled Track II</h3>
+            <p class="card__meta">Coming Soon</p>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card__placeholder">
+            <svg class="card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+              <circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+              <circle cx="24" cy="24" r="3" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="card__body">
+            <div class="card__lock">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd"/></svg>
+            </div>
+            <h3 class="card__title">Debut Album</h3>
+            <p class="card__meta">Coming Soon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <div class="section__label reveal">Portfolio</div>
+      <h2 class="section__heading reveal">Gallery</h2>
+      <p class="section__sub reveal">Photos coming soon.</p>
+
+      <div class="gallery__grid">
+        <div class="gallery__slot reveal">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="gallery__icon">
+            <path d="M6 14a4 4 0 014-4h4l2-4h8l2 4h4a4 4 0 014 4v22a4 4 0 01-4 4H10a4 4 0 01-4-4V14z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="24" cy="25" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="36" cy="16" r="1.5" fill="currentColor"/>
+          </svg>
+          <span class="gallery__slot-label">Coming Soon</span>
+        </div>
+        <div class="gallery__slot reveal">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="gallery__icon">
+            <path d="M6 14a4 4 0 014-4h4l2-4h8l2 4h4a4 4 0 014 4v22a4 4 0 01-4 4H10a4 4 0 01-4-4V14z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="24" cy="25" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="36" cy="16" r="1.5" fill="currentColor"/>
+          </svg>
+          <span class="gallery__slot-label">Coming Soon</span>
+        </div>
+        <div class="gallery__slot reveal">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="gallery__icon">
+            <path d="M6 14a4 4 0 014-4h4l2-4h8l2 4h4a4 4 0 014 4v22a4 4 0 01-4 4H10a4 4 0 01-4-4V14z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="24" cy="25" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="36" cy="16" r="1.5" fill="currentColor"/>
+          </svg>
+          <span class="gallery__slot-label">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section__label reveal">Get In Touch</div>
+      <h2 class="section__heading reveal">Contact</h2>
+      <p class="section__sub reveal">For bookings, collaborations, or just to say hello.</p>
+
+      <div class="contact__card reveal">
+        <a href="mailto:dan@example.com" class="contact__email">dan@example.com</a>
+
+        <div class="contact__socials">
+          <!-- Instagram -->
+          <a href="#" class="social__link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+            </svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" class="social__link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M10 9l5 3-5 3V9z" fill="currentColor"/>
+            </svg>
+          </a>
+          <!-- Spotify -->
+          <a href="#" class="social__link" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M7.5 15.5c2.5-1 5.5-1 8 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 12.5c3-1.2 6.5-1.2 9.5 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7.5 9.5c2.8-1 5.8-1 8.5 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2026 Dan. All rights reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
