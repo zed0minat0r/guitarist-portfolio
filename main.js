@@ -97,7 +97,7 @@
 
 /* --- Stagger reveal children within card grids ------------ */
 (function initStagger() {
-  const groups = document.querySelectorAll('.cards, .gallery__grid');
+  const groups = document.querySelectorAll('.cards');
   groups.forEach(group => {
     const children = group.querySelectorAll('.reveal');
     children.forEach((child, i) => {

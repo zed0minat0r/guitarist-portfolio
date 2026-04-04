@@ -472,56 +472,22 @@ ul { list-style: none; }
   display: block;
 }
 
-.music__more {
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
+.music__cta {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-/* ============================================================
-   GALLERY
-   ============================================================ */
-.gallery {
-  background: var(--bg);
-}
-
-.gallery__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.gallery__slot {
-  aspect-ratio: 4/3;
-  background: var(--bg-card);
-  border: 1px dashed rgba(201, 168, 76, 0.25);
-  border-radius: var(--radius);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  transition: border-color var(--transition), background var(--transition);
-}
-
-.gallery__slot:hover {
-  border-color: rgba(201, 168, 76, 0.5);
-  background: #111;
-}
-
-.gallery__icon {
-  width: 40px;
-  height: 40px;
   color: var(--gold);
-  opacity: 0.5;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: 4px;
+  padding: 10px 24px;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform 0.2s ease;
 }
 
-.gallery__slot-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+.music__cta:hover {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: var(--gold);
+  transform: translateY(-2px);
 }
 
 /* ============================================================
@@ -617,7 +583,6 @@ ul { list-style: none; }
   .bio__tags { justify-content: center; }
 
   .cards { grid-template-columns: 1fr; }
-  .gallery__grid { grid-template-columns: 1fr; }
 
   .contact__card {
     padding: 36px 28px;
@@ -625,7 +590,6 @@ ul { list-style: none; }
     text-align: center;
   }
 
-  .contact__email { font-size: 1.2rem; }
 }
 
 /* ============================================================
@@ -655,5 +619,4 @@ ul { list-style: none; }
   .contact__card { padding: 28px 20px; }
   .contact__message { font-size: 0.9rem; }
 
-  .gallery__grid { grid-template-columns: 1fr 1fr; }
 }
