@@ -442,74 +442,41 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   MUSIC CARDS
+   MUSIC — YOUTUBE EMBED
    ============================================================ */
 .music {
   background: #0d0d0d;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.music__embed-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 24px;
+  margin-top: 44px;
 }
 
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+.music__embed {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
   border-radius: var(--radius);
   overflow: hidden;
-  transition: border-color var(--transition), transform var(--transition);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  box-shadow: 0 8px 48px rgba(201, 168, 76, 0.15), 0 2px 16px rgba(0, 0, 0, 0.6);
 }
 
-.card:hover {
-  border-color: rgba(201, 168, 76, 0.4);
-  transform: translateY(-4px);
+.music__embed iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
-.card__placeholder {
-  height: 180px;
-  background: #111;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid var(--border);
-}
-
-.card__icon {
-  width: 64px;
-  height: 64px;
-  color: var(--gold);
-  opacity: 0.7;
-}
-
-.card__body {
-  padding: 24px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.card__lock {
-  width: 20px;
-  height: 20px;
-  color: var(--text-muted);
-  flex-shrink: 0;
-}
-
-.card__title {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--cream);
-  font-weight: 600;
-  flex: 1;
-}
-
-.card__meta {
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
+.music__more {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--text-muted);
 }
 
 /* ============================================================
@@ -576,16 +543,11 @@ ul { list-style: none; }
   gap: 36px;
 }
 
-.contact__email {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  color: var(--cream);
-  transition: color var(--transition);
-  word-break: break-all;
-}
-
-.contact__email:hover {
-  color: var(--gold);
+.contact__message {
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.7;
+  max-width: 440px;
 }
 
 .contact__socials {
@@ -674,7 +636,8 @@ ul { list-style: none; }
   .nav.scrolled { padding: 12px 20px; }
 
   .hero { padding: 100px 20px 80px; }
-  .hero__name { font-size: clamp(4rem, 22vw, 6rem); }
+  /* Toned down: "Dan" at 375px was ~82px (22vw). Cap at 18vw for better balance. */
+  .hero__name { font-size: clamp(3.5rem, 18vw, 5rem); }
 
   .section { padding: 72px 0; }
   .container { padding: 0 20px; }
@@ -684,10 +647,13 @@ ul { list-style: none; }
   .bio__card { padding: 28px 20px; }
   .bio__intro { font-size: 1rem; }
 
-  .card__body { flex-direction: column; align-items: flex-start; gap: 8px; }
+  /* Embed stays full-width and 16:9 on mobile via aspect-ratio — no override needed */
+  .music__embed {
+    border-radius: 8px;
+  }
 
   .contact__card { padding: 28px 20px; }
-  .contact__email { font-size: 1rem; }
+  .contact__message { font-size: 0.9rem; }
 
   .gallery__grid { grid-template-columns: 1fr 1fr; }
 }
