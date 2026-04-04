@@ -2,7 +2,7 @@
 **Date:** 2026-04-04
 **Auditor:** Nigel (strict UX/design auditor)
 **Benchmark:** Premium independent artist portfolio sites
-**Scope:** index.html, style.css, main.js — v2 state (real YouTube embed, Open Graph meta added)
+**Scope:** index.html, style.css, main.js — v3 state
 
 ---
 
@@ -12,12 +12,13 @@
 |---|---|---|---|
 | v1 | 2026-04-04 | 5.8 | Launch: bio only, placeholder music cards, no meta |
 | v2 | 2026-04-04 | 6.2 | Real YouTube embed, Open Graph / Twitter Card meta, real YouTube social link |
+| v3 | 2026-04-04 | 6.4 | Gallery section removed, iframe lazy-loading added, contact copy tightened, "More music coming soon" removed |
 
 ---
 
-## Overall Score: 6.2 / 10
+## Overall Score: 6.4 / 10
 
-> A meaningful step forward. The site now has actual content a visitor can engage with — one real video — and it will share correctly on social platforms. But the overall impression is still "one real thing surrounded by placeholders." A real booker sees a YouTube embed and three empty gallery boxes and files this under "not ready yet." The design taste is there; the content mass is not.
+> v3 is a clean-up iteration, not a transformation. Removing the gallery was the right call — the page no longer leads a visitor into an empty room. The iframe now lazy-loads. The contact copy is tighter. But the three structural problems that define the ceiling have not moved: no photograph of Dan, no working contact path, and an Instagram link that goes to instagram.com's homepage. A real user who watches the YouTube video and wants to follow or book Dan hits a wall at every turn. Until there is a face, a real Instagram, and a way to reach the artist, this site cannot function as a professional portfolio.
 
 ---
 
@@ -25,140 +26,138 @@
 
 | Category | Score | Notes |
 |---|---|---|
-| Visual Design | 6.3 | Gold-black palette still strong; "D" avatar still a credibility gap; gallery still three empty boxes |
-| Mobile UX (375px) | 5.7 | YouTube embed is 16:9 and scales correctly; burger still has no visible X state; contact card still left-aligned on desktop |
-| Content Quality | 5.2 | One real video is a genuine upgrade; bio text still generic; gallery still empty; two social links still go to # |
-| Typography | 6.5 | No change — Playfair + Inter pairing remains solid; 0.7rem label text still too small |
-| Performance | 6.5 | OG meta is a real improvement; YouTube iframe has no lazy-loading attribute; structured data still absent |
-| Accessibility | 5.8 | YouTube iframe has a meaningful title attribute — good; no other new accessibility work |
-| Overall Feel | 5.8 | One real video makes the music section feel real; everything else still reads as placeholder |
+| Visual Design | 6.4 | Cleaner without the empty gallery; hero still has no visual anchor; "D" avatar still the biggest credibility gap |
+| Mobile UX (375px) | 5.9 | Lazy-load iframe is correct; burger still has no visible X state; contact card has no actionable path on mobile |
+| Content Quality | 5.3 | Gallery gone is a net positive; bio still generic; Instagram goes to homepage; YouTube channel link is `youtube.com/@` with no handle |
+| Typography | 6.5 | No change — Playfair + Inter pairing holds; 0.7rem section labels still below readable threshold on mobile |
+| Performance | 6.8 | `loading="lazy"` on iframe is now correct; OG meta intact; still no structured data, no canonical, no OG URL tag |
+| Accessibility | 5.8 | No new accessibility work; contrast, focus trap, skip link, burger focus state all still unresolved |
+| Overall Feel | 6.0 | Page is shorter and more honest; one real video, one real YouTube link, two broken social paths, zero contact options |
 
 ---
 
-## Visual Design — 6.3
+## Visual Design — 6.4
 
 **What works:**
-- Black/gold/cream palette continues to hold up as the correct genre signal for neoclassical guitar.
-- Playfair Display for display headings is still the right call — classical without being stuffy.
-- The animated staff lines remain the strongest visual differentiator from a generic template.
-- The YouTube embed container is styled correctly: gold border, rounded corners, subtle shadow — it fits the design language.
-- Scroll reveal animations remain clean.
+- Removing the gallery eliminates the most glaring absence signal. The page is now shorter and every section that exists has at least something real in it.
+- Gold-on-black palette remains genre-appropriate and well-executed. Playfair Display headings hold up.
+- YouTube embed container styling (gold border, shadow, rounded corners) integrates cleanly with the design language.
+- Staff-line animation in the hero is still the strongest purely visual differentiator from a template.
+- Scroll reveal on section entries is smooth and unobtrusive.
 
 **Issues:**
-- **The "D" avatar is still the single biggest credibility failure on the page.** Nothing else fixes this. A visitor landing on an artist portfolio with a gold circle containing the letter "D" where a photograph should be concludes, accurately, that this is unfinished. This issue was Priority 1 in v1 and remains Priority 1 in v2.
-- **Gallery section is still three identical dashed placeholder boxes.** After two versions, this section contributes nothing. It occupies nav real estate and vertical scroll space in exchange for zero value. A returning visitor sees no progress here.
-- **Hero has no visual mass.** The staff lines and floating notes are still nearly invisible on most screens. The hero is 100vh of near-black with centered text. A real artist site leads with something visual — a photo, a performance still, a video background. The hero currently communicates tone but not identity.
-- **Music section now has one embed and a "More music coming soon" line.** The embed itself is a win. The "More music coming soon" line underneath reads as an apology. Remove it, or replace it with a "Subscribe on YouTube" CTA that gives the visitor somewhere to go.
-- **Section label "Discography" is still used for a section with a single YouTube embed.** "Discography" implies a catalogue. "Watch" or "Music" would be more honest.
+- **The "D" avatar remains the single largest credibility failure.** This was Priority 1 in v1, Priority 1 in v2, and is still Priority 1 in v3. An artist portfolio where the artist's photograph has never appeared is not a portfolio — it is scaffolding. No amount of design work around it compensates. A visitor's first question upon seeing a "D" avatar is whether this site belongs to a real person.
+- **Hero has no visual identity.** 100vh of near-black with centered text and barely-visible animated lines communicates atmosphere but not the artist. A performance photo behind the hero text — even low-opacity, even blurred — would transform the first impression from "elegant template" to "this is a real person." At 375px on mobile the hero is especially stark.
+- **"Subscribe on YouTube" CTA below the embed links to `https://www.youtube.com/@`** — no channel handle appended. This link goes to YouTube's homepage. A visitor who clicks it after watching the video is taken to YouTube's generic homepage, not Dan's channel. This is a broken link that actively damages credibility at the one moment the visitor is engaged.
 
 ---
 
-## Mobile UX (375px) — 5.7
+## Mobile UX (375px) — 5.9
 
 **What works:**
-- YouTube embed uses `aspect-ratio: 16 / 9` and no fixed height — it scales perfectly from 375px up to desktop. This is the correct implementation.
-- Bio card stacks vertically and centers text correctly.
-- Gallery placeholder boxes now render in a 2-column grid at 480px and 1-column below that — correct.
-- Burger menu closes on outside tap and link tap — functional.
+- YouTube embed scales correctly via `aspect-ratio: 16/9` — no horizontal overflow, correct proportions at 375px.
+- Bio card stacks and centers cleanly. Tags wrap without overflow.
+- Burger closes on outside tap and on nav link tap.
+- Page is now 4 sections (hero, bio, music, contact) — a shorter scroll on mobile is a real improvement.
 
 **Issues:**
-- **Burger has no visual X state when open.** The three-line hamburger icon does not transform into an X or close indicator when the menu is open. Users on mobile who don't know to tap outside or tap a link are stuck. This was flagged in v1 and remains unresolved.
-- **No focus trap in mobile nav.** Keyboard/assistive users can still tab past the open menu into background content. This is both a usability and accessibility failure on mobile.
-- **Hero CTA "Explore My Work" still scrolls to the bio section.** On mobile, a user who taps this has already scrolled past a 100vh hero. They expect to be taken to something to see or hear. Landing on a text-only bio is a mismatch. Now that there is a real YouTube embed, the CTA should point to `#music`.
-- **Contact section is `align-items: flex-start` on desktop but centers on mobile.** This is fine structurally, but the contact message — "Want to book Dan, collaborate, or just to say hello?" — and then two placeholder social icons and one real YouTube icon looks incomplete. A visitor looking to actually contact Dan has no clear mechanism on mobile.
-- **Gallery 2-column at 480px means each slot is roughly 155px wide.** Three identical camera-icon placeholders in a tight 2-column grid (with one below) on a 375px screen just draws attention to absent content. The section should be removed from mobile nav until populated.
+- **Burger still has no X state.** When the mobile nav is open, the three-line icon does not transform into a close indicator. Users who open the menu and look for a way to dismiss it see the same three lines. This has been flagged in every audit and remains unresolved. This is a one-function CSS fix.
+- **Contact section is the final destination for a mobile visitor and it goes nowhere.** "Reach out via Instagram or YouTube" — Instagram goes to instagram.com's homepage, YouTube goes to a specific video (not a channel). A mobile user who wants to follow or contact Dan after watching the video has no working path. The contact section is the bottom of the funnel; it should not be where the funnel stops.
+- **No focus trap in mobile nav.** Keyboard and assistive technology users can tab past the open menu into background content. This is both a UX and accessibility failure.
+- **`font-size: 0.7rem` section labels at 375px** (11.2px effective) — still below WCAG's practical readability threshold. "DISCOGRAPHY" at 11.2px with 0.3em letter-spacing is barely legible without perfect eyesight.
 
 ---
 
-## Content Quality — 5.2
+## Content Quality — 5.3
 
 **What works:**
-- The YouTube embed is real content. A visitor can now watch Dan play. This is the most important thing added in v2 and it moves the needle.
-- Open Graph image uses the YouTube thumbnail (`maxresdefault.jpg`) — smart use of existing media, looks professional when shared on social.
-- The YouTube social link now points to an actual video. One of three social links is real.
-- Bio tags (Neoclassical, Fingerstyle, Composer, Classical Technique, Electric Guitar) are accurate.
+- Gallery removal is an unconditional improvement. An empty section advertises absence; no section advertises nothing.
+- The YouTube embed is real content. A visitor can watch Dan play. This remains the site's only genuinely credible moment.
+- OG image correctly pulls the YouTube thumbnail — shares well on social platforms.
+- Bio tags are accurate and specific to the genre.
+- Contact copy ("Dan is currently booking select engagements") is more concrete than the previous version.
 
 **Issues:**
-- **Bio text is still generic.** "Relentless pursuit of beauty," "fluency and intention," "architectural — layered, deliberate" — these phrases could describe any musician in any genre. There is no specific mention of Dan's playing style, the tuning systems he uses, the pieces he performs, or what makes his interpretation of the neoclassical genre different from Luca Stricagnoli or Alexandr Misko. The bio should be rewritten in a first-person voice or with specific, concrete details.
-- **"Based on the East Coast" remains uselessly vague.** Booking agents need a city or metropolitan region.
-- **Instagram and Spotify still go to `#`.** Two of three social links are non-functional placeholders. This is better than v1 (where all three went to `#`) but still creates a broken-link experience.
-- **Gallery section is still entirely empty.** After two build iterations, the gallery has contributed nothing. It should either be hidden or removed.
-- **No contact mechanism exists.** There is no email address, no contact form, no booking inquiry link. The contact section heading says "For bookings, collaborations, or just to say hello" — and then provides two broken links and one YouTube link. A visitor who wants to hire Dan has no path to do so.
-- **"More music coming soon" is the single weakest line on the page.** It signals that what exists is insufficient. Delete it and let the embed stand alone. One real video, no apology.
+- **Instagram link goes to `https://www.instagram.com` — the homepage.** This is only marginally better than linking to `#`. A visitor who taps the Instagram icon is taken to Instagram's login/explore page, not Dan's profile. Either link to a real profile or remove the Instagram icon entirely. A broken social link is worse than no social link.
+- **YouTube channel link is `https://www.youtube.com/@` with no channel handle.** The "Subscribe on YouTube" CTA below the embed and the YouTube social icon in the contact section both link to real content (the specific video), but the channel-level CTA under the embed goes nowhere. This needs a real channel URL or should be removed.
+- **Bio text remains generic.** Three versions in, the bio still reads as placeholder-quality writing for any neoclassical guitarist. "Relentless pursuit of beauty," "fluency and intention," "architectural — layered, deliberate" — none of these phrases distinguish Dan from any of the hundred other guitarists who could be described in identical terms. No specific pieces, influences by name, tunings, technique details, or personal voice. The bio is the only place on the site where Dan can speak — it currently says nothing specific about who he is.
+- **No contact mechanism exists.** The contact section heading and body tell the visitor that Dan is booking, but there is no email, no form, no booking link, no management contact. A booking agent who watches the video and wants to hire Dan cannot proceed. The contact section is the highest-value real estate on a portfolio site; it currently functions as a dead end.
+- **"Based on the East Coast" remains uselessly vague.** Booking agents plan logistics. A city or metro region is the minimum useful information.
 
 ---
 
 ## Typography — 6.5
 
-**No change from v1.** Playfair + Inter remains correct. The issues flagged in v1 remain:
+No change from v2. Playfair Display + Inter remains the correct pairing for this genre. Outstanding issues:
 
-- **`font-size: 0.7rem` (11.2px) for section labels** is still below readable threshold on mobile.
-- **`letter-spacing: 0.3em` at 11.2px** is still visually cramped on small screens.
-- **Hero preheading "Guitarist & Composer" and subtitle "Neoclassical Guitarist" are still redundant** back-to-back lines.
-- **No vertical rhythm system.** Ad hoc spacing values throughout.
+- **`font-size: 0.7rem` (11.2px) for `.section__label`** is below the practical readability threshold for most users, particularly on mobile. Raising to `0.75rem` and reducing `letter-spacing` to `0.2em` would improve legibility without compromising the aesthetic.
+- **`letter-spacing: 0.3em` at 11.2px** creates excessive inter-character spacing that can actually decrease readability at this size.
+- **Hero redundancy:** "Guitarist & Composer" (preheading) and "Neoclassical Guitarist" (subtitle) are back-to-back restatements of the same claim with slightly different wording. One of these lines should go.
+- **No vertical rhythm system.** Spacing values throughout the CSS are ad hoc (`52px`, `44px`, `36px`, `28px`, `20px` — all arbitrary). This is not a visible problem to most users but will create inconsistency at edge cases.
 
 ---
 
-## Performance — 6.5
+## Performance — 6.8
 
-**Improvements in v2:**
-- Open Graph and Twitter Card meta are now present. The OG image is a real image URL (YouTube thumbnail) — this is correct and will render properly when the URL is shared. Previously this was flagged as absent; now it is resolved.
-- The YouTube thumbnail used for OG (`maxresdefault.jpg`) is a smart choice — no additional image file to host or optimize.
+**Improvements in v3:**
+- `loading="lazy"` is now present on the YouTube iframe. This defers iframe load until the user scrolls to the music section — the single most impactful performance improvement for a mobile visitor on a slow connection. Correctly implemented.
+- OG and Twitter Card meta remain intact and correct.
 
 **Issues that remain:**
-- **YouTube iframe has no `loading="lazy"` attribute.** On mobile, the iframe loads immediately on page load, consuming bandwidth before the user has scrolled to the music section. `loading="lazy"` on the iframe defers this until the section is in viewport. This is a meaningful performance improvement on mobile connections.
-- **No structured data / JSON-LD.** Schema.org `MusicGroup` or `Person` markup would make this page eligible for rich results in Google. For a musician trying to build discoverability, this is a high-value low-effort addition.
-- **Two Google Fonts families with 7 font variant requests.** Playfair Display uses four variants (400, 400-italic, 600, 700) and Inter uses three (300, 400, 500). A trimmed subset (drop Playfair 600 if only used in one place) would reduce font load.
-- **No `<link rel="canonical">` tag.** For SEO hygiene on a GitHub Pages site this matters when sharing variants of the URL.
-- **OG URL tag is missing.** `<meta property="og:url">` is not set. Most validators flag this as incomplete Open Graph implementation.
+- **No structured data / JSON-LD.** Schema.org `MusicGroup` or `Person` markup would qualify this page for rich results in Google Search. For a musician building discoverability, this is high-value and low-effort. Still absent after three versions.
+- **`<meta property="og:url">` is missing.** The Open Graph implementation is otherwise complete but omits the URL property. Most OG validators flag this as an incomplete implementation.
+- **No `<link rel="canonical">` tag.** GitHub Pages serves content at multiple URL variants (with/without trailing slash, http/https redirects). A canonical tag prevents split ranking signals.
+- **Seven Google Fonts variant requests** (Playfair Display: 400, 400i, 600, 700; Inter: 300, 400, 500). Playfair 600 appears to be used only for `.section__heading` — dropping it in favor of 700 would reduce one font request.
 
 ---
 
 ## Accessibility — 5.8
 
-**Improvements in v2:**
-- YouTube `<iframe>` has `title="Dan — Neoclassical Guitar"` — this is the correct accessibility attribute for embedded media. Screen readers will announce the iframe correctly.
+No accessibility improvements were made in v3. All v2 issues remain:
 
-**Issues that remain from v1:**
-- **`var(--text-muted)` (#888 on #0a0a0a) is still ~4.0:1 contrast** — below WCAG AA (4.5:1) for normal text. Affects nav links, section sub-headings, gallery labels, footer. Not fixed.
-- **No skip-to-content link.** Keyboard users must still tab through the entire nav every page load.
-- **No focus trap in mobile nav.** Still a keyboard accessibility failure.
-- **`nav__burger` has no `:focus-visible` style.** Keyboard users have no visible focus indicator on the menu button.
-- **"D" avatar `<div>` with `aria-label` and no `role`.** Screen readers won't reliably announce this without `role="img"`.
-- **Bio tags in `<span>` elements** have no semantic list structure — still better served as `<ul>/<li>`.
-
----
-
-## Overall Feel — 5.8
-
-A real user landing on this page in v2 sees:
-
-1. A dramatic dark hero — promising.
-2. They scroll. A bio with a letter "D" where a photo should be.
-3. They scroll. A real YouTube video. They watch it. **This is the first moment the site earns credibility.**
-4. They scroll. Three identical empty gallery boxes labeled "Coming Soon."
-5. They scroll. A contact card with two broken social links and one real YouTube link. No email. No form.
-6. They leave — but they now know what Dan sounds like. That is the difference between v1 and v2.
-
-The YouTube embed is the pivot point. A site that previously had nothing real to offer now has one thing to offer, and that one thing is the most important thing for a musician: the actual music. The score moves from 5.8 to 6.2 because of this.
-
-The site still cannot function as a professional contact point. A booker who watches the video and wants to reach Dan has no path forward. The gallery is a negative — it signals absence rather than potential. And the hero still asks visitors to engage with text before sound, which is backwards for a musician.
-
-Benchmark comparison: a Squarespace "Clarkson" template with a YouTube embed would score comparably. The custom design earns points the template wouldn't, but the content gap is large enough that the execution advantage is mostly offset.
+- **`var(--text-muted)` (#888 on #0a0a0a) is ~4.0:1 contrast** — below WCAG AA (4.5:1) for normal text. Affects nav links, contact copy, footer. Raising to `#999` or `#9a9a9a` would clear the threshold without breaking the visual design.
+- **No skip-to-content link.** Keyboard users must tab through the entire nav on every page load before reaching main content.
+- **No focus trap in mobile nav.** Keyboard/assistive users can tab through the open mobile menu into background content — both a functional and accessibility failure.
+- **`.nav__burger` has no `:focus-visible` style.** Keyboard users have no visible focus indicator on the menu toggle button.
+- **Bio avatar `<div>` has `aria-label` but no `role="img"`.** Without an explicit role, screen reader behavior for this element is inconsistent across browsers.
+- **Bio tags in `<span>` elements** lack semantic list structure. `<ul>/<li>` with appropriate `aria-label` on the list would be more correct.
+- **`<section>` elements have no `aria-labelledby`.** Each section has a heading, but sections are not explicitly labelled for landmark navigation.
 
 ---
 
-## Top 3 Priorities for v3
+## Overall Feel — 6.0
 
-### 1. Add a real photograph — this is the highest leverage single change (Critical)
-The "D" avatar has been Priority 1 for two versions. A real artist portfolio without a photograph of the artist is not a professional portfolio — it is a design exercise. Any photograph is better than the current placeholder: phone camera in good light, live performance still, instrument close-up. Extend to the hero: even a subtle photograph in the background of the hero section would transform the site's first impression. The avatar in the bio section must be replaced with a real image in v3.
+A real user landing on v3:
 
-### 2. Add a real contact mechanism and fix the broken social links (Critical)
-The site has no functional path for a booking inquiry. There is no email address, no contact form, and two of three social links go to `#`. A site without a contact mechanism is not a professional portfolio — it is a digital business card with the phone number missing. In v3: add a real email address (or a mailto link with booking context), update Instagram and Spotify links to real profiles or remove them entirely, and replace the "For bookings, collaborations, or just to say hello" copy with a specific call to action that tells the visitor exactly how to reach Dan.
+1. Dark hero, animated staff lines — atmospheric. Reads as intentional. No face, no photo. Already a question mark.
+2. Scrolls to bio. Elegant card. Gold "D" avatar. Long bio that says very little specific. Interest maintained by design quality, not by content.
+3. Scrolls to music. Watches the video. **This is still the site's one genuine moment.** The music is good. The design around the video is polished.
+4. Taps "Subscribe on YouTube" under the video. Lands on YouTube's homepage. Confused. Already losing them.
+5. Scrolls to contact. Two social icons. Taps Instagram. Lands on instagram.com. Now actively frustrated.
+6. Taps YouTube icon. Watches the video again, or closes the tab.
 
-### 3. Remove or hide the empty Gallery section from the nav (High)
-After two versions, the gallery contains nothing. Three dashed placeholder boxes with camera icons consume nav real estate and scroll distance while communicating nothing except absence. Hide the section from the nav and collapse it from the page until at least three real photos exist. A shorter page with real content is more credible than a longer page with empty sections. Remove "Gallery" from both the desktop nav links and the mobile nav links, and restore it only when the section has real content.
+The net impression: "This person can play guitar. I can't find them anywhere." That is a better outcome than v1 or v2 ("This person can play guitar. The site looks unfinished.") — but only marginally.
+
+The gallery removal shortened the page and removed a negative. The lazy-load iframe is the right implementation. The design quality is genuine and above the Squarespace template baseline. But the site still cannot close a booking, cannot get a follow, and cannot put a face to the name. A site that earns credibility with one video and then sends every interested visitor to a dead link has a funnel problem, not a design problem.
+
+Benchmark: a musician friend's Linktree page with a YouTube link and an Instagram handle would convert more interested visitors into followers. That is the standard v4 must beat.
 
 ---
 
-*Audit by Nigel — strict from a real user's perspective. Score starts at 5.0 for "it loads and looks intentional." v2 earns 6.2: the YouTube embed is a real step forward and the OG meta is correctly implemented. The site now has one real thing. It needs a face, a contact point, and less empty space before it can be shared with anyone who matters.*
+## Top 3 Priorities for v4
+
+### 1. Fix both broken social links — or remove them (Critical)
+
+The Instagram icon links to `https://www.instagram.com` (homepage). The "Subscribe on YouTube" CTA under the embed links to `https://www.youtube.com/@` (incomplete URL). These are not placeholder states — they are live broken links on a published site. A visitor who taps either one after watching the video is sent to an irrelevant page. This actively destroys the credibility earned by the YouTube embed. In v4: update Instagram to a real profile URL or remove the icon; update the YouTube channel CTA to a real channel URL or remove the button. One working link is worth more than three broken ones.
+
+### 2. Replace the "D" avatar with any real photograph (Critical)
+
+This is the fourth audit in which this is a top priority. The "D" avatar is still the first thing a visitor sees in the bio section. An artist portfolio without a photograph of the artist communicates, at a subconscious level, that the artist does not exist or does not want to be seen. A phone photo in decent lighting, a live performance still, or even a close-up of hands on strings would raise the Visual Design score and the Overall Feel score simultaneously. Extend this to the hero: even a low-opacity background image in the hero section would transform the site's first impression from "elegant dark template" to "this is a real musician."
+
+### 3. Add a real contact mechanism (High)
+
+The contact section says Dan is booking but provides no way to actually book him. Add at minimum a `mailto:` link — even a formatted booking inquiry email — so that a visitor who wants to hire Dan can take a concrete action. If a public email is not desirable, a simple contact form (Formspree, Netlify Forms) requires no backend. The contact section is the bottom of every visitor's funnel; right now it is a closed door. A single working email link would immediately make this site functional as a professional portfolio rather than a design demonstration.
+
+---
+
+*Audit by Nigel — strict from a real user's perspective. Score starts at 5.0 for "it loads and looks intentional." v3 earns 6.4: the gallery removal and iframe lazy-load are genuine improvements; the site is shorter, cleaner, and loads faster on mobile. But the broken social links mean the only moment of real engagement — watching the video — leads immediately to a dead end. Fix the links, add a face, add a contact path. Until then, the ceiling is 6.5.*
