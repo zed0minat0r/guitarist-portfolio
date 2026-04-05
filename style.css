@@ -284,8 +284,8 @@ ul { list-style: none; }
   inset: 0;
   background-size: cover;
   background-position: center top;
-  opacity: 0.30;
-  filter: grayscale(30%);
+  opacity: 0.40;
+  filter: grayscale(20%);
   transform: scale(1.05);
   transition: transform 12s ease;
 }
@@ -396,7 +396,7 @@ ul { list-style: none; }
   color: var(--cream);
   letter-spacing: -0.02em;
   margin-bottom: 20px;
-  text-shadow: 0 4px 60px rgba(201, 168, 76, 0.15);
+  text-shadow: 0 4px 60px rgba(201, 168, 76, 0.22), 0 0 120px rgba(201, 168, 76, 0.08);
 }
 
 .hero__subtitle {
@@ -718,6 +718,15 @@ ul { list-style: none; }
   margin-top: 4px;
 }
 
+.music__channel-note {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 480px;
+  line-height: 1.6;
+  margin-top: -8px;
+}
+
 .music__more-link {
   display: inline-block;
   font-size: 0.875rem;
@@ -728,7 +737,7 @@ ul { list-style: none; }
   border-bottom: 1px solid rgba(201, 168, 76, 0.35);
   padding-bottom: 2px;
   transition: color var(--transition), border-color var(--transition);
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .music__more-link:hover {
@@ -853,10 +862,20 @@ ul { list-style: none; }
   letter-spacing: 0.04em;
 }
 
+.footer__genre {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(201, 168, 76, 0.55);
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
 .footer__copy {
   font-size: 0.8rem;
   letter-spacing: 0.06em;
   color: var(--text-muted);
+  margin-top: 6px;
 }
 
 /* ============================================================
@@ -905,7 +924,7 @@ ul { list-style: none; }
 
   .contact__message {
     max-width: 100%;
-    text-align: left;
+    text-align: center;
   }
 
   .contact__cta-group {
