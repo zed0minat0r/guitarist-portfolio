@@ -284,7 +284,7 @@ ul { list-style: none; }
   inset: 0;
   background-size: cover;
   background-position: center top;
-  opacity: 0.18;
+  opacity: 0.30;
   filter: grayscale(30%);
   transform: scale(1.05);
   transition: transform 12s ease;
@@ -460,7 +460,7 @@ ul { list-style: none; }
 }
 
 .section__label {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gold);
@@ -718,6 +718,24 @@ ul { list-style: none; }
   margin-top: 4px;
 }
 
+.music__more-link {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.35);
+  padding-bottom: 2px;
+  transition: color var(--transition), border-color var(--transition);
+  margin-top: 8px;
+}
+
+.music__more-link:hover {
+  color: var(--gold-light);
+  border-color: rgba(226, 194, 114, 0.7);
+}
+
 /* ============================================================
    CONTACT
    ============================================================ */
@@ -887,6 +905,7 @@ ul { list-style: none; }
 
   .contact__message {
     max-width: 100%;
+    text-align: left;
   }
 
   .contact__cta-group {
