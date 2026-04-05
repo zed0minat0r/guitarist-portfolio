@@ -32,18 +32,25 @@
       <li><a href="#music">Music</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="nav__burger" id="navBurger" aria-label="Open menu">
+    <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
-  <div class="nav__mobile" id="navMobile">
+  <div class="nav__mobile" id="navMobile" aria-hidden="true">
     <a href="#bio" class="nav__mobile-link">About</a>
     <a href="#music" class="nav__mobile-link">Music</a>
     <a href="#contact" class="nav__mobile-link">Contact</a>
   </div>
+  <div class="nav__overlay" id="navOverlay"></div>
 
   <!-- HERO -->
   <section class="hero" id="hero">
+    <!-- YouTube thumbnail as low-opacity hero background -->
+    <div class="hero__bg" aria-hidden="true"
+      style="background-image: url('https://img.youtube.com/vi/CX0kmQSoet8/maxresdefault.jpg')">
+    </div>
+    <div class="hero__bg-overlay" aria-hidden="true"></div>
+
     <div class="hero__staff" aria-hidden="true">
       <div class="staff-lines">
         <div class="staff-line"></div>
@@ -65,7 +72,10 @@
       <p class="hero__preheading">Guitarist &amp; Composer</p>
       <h1 class="hero__name">Dan</h1>
       <p class="hero__subtitle">Neoclassical Guitarist</p>
-      <a href="#bio" class="btn btn--gold">Explore My Work</a>
+      <div class="hero__cta-group">
+        <a href="#music" class="btn btn--gold">Watch &amp; Listen</a>
+        <a href="#bio" class="btn btn--outline">About Dan</a>
+      </div>
     </div>
 
     <div class="hero__scroll-indicator" aria-hidden="true">
@@ -80,7 +90,12 @@
       <h2 class="section__heading reveal">The Artist</h2>
 
       <div class="bio__card reveal">
-        <div class="bio__avatar" aria-label="Dan — Neoclassical Guitarist">D</div>
+        <div class="bio__avatar-wrap">
+          <div class="bio__avatar-ring" aria-hidden="true"></div>
+          <div class="bio__avatar" aria-label="Dan — Neoclassical Guitarist">
+            <span class="bio__avatar-initial">D</span>
+          </div>
+        </div>
         <div class="bio__text">
           <p class="bio__intro">
             Neoclassical guitar is where centuries of classical tradition meet the unbounded energy of modern music. It is a genre built on precision, emotion, and the relentless pursuit of beauty — and it is at the heart of everything Dan plays.
@@ -106,11 +121,23 @@
     </div>
   </section>
 
+  <!-- DIVIDER -->
+  <div class="section-divider" aria-hidden="true">
+    <svg viewBox="0 0 1200 24" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <line x1="0" y1="12" x2="480" y2="12" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+      <circle cx="600" cy="12" r="4" fill="rgba(201,168,76,0.5)"/>
+      <circle cx="590" cy="12" r="2" fill="rgba(201,168,76,0.3)"/>
+      <circle cx="610" cy="12" r="2" fill="rgba(201,168,76,0.3)"/>
+      <line x1="720" y1="12" x2="1200" y2="12" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+    </svg>
+  </div>
+
   <!-- MUSIC -->
   <section class="section music" id="music">
     <div class="container">
-      <div class="section__label reveal">Discography</div>
+      <div class="section__label reveal">Featured Performance</div>
       <h2 class="section__heading reveal">Music</h2>
+      <p class="section__sub reveal">A glimpse into the sound — more performances coming soon.</p>
 
       <div class="music__embed-wrap reveal">
         <div class="music__embed">
@@ -123,10 +150,20 @@
             allowfullscreen
           ></iframe>
         </div>
-        <a href="https://www.youtube.com/@" class="music__cta" target="_blank" rel="noopener noreferrer">Subscribe on YouTube</a>
       </div>
     </div>
   </section>
+
+  <!-- DIVIDER -->
+  <div class="section-divider" aria-hidden="true">
+    <svg viewBox="0 0 1200 24" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <line x1="0" y1="12" x2="480" y2="12" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+      <circle cx="600" cy="12" r="4" fill="rgba(201,168,76,0.5)"/>
+      <circle cx="590" cy="12" r="2" fill="rgba(201,168,76,0.3)"/>
+      <circle cx="610" cy="12" r="2" fill="rgba(201,168,76,0.3)"/>
+      <line x1="720" y1="12" x2="1200" y2="12" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+    </svg>
+  </div>
 
   <!-- CONTACT -->
   <section class="section contact" id="contact">
@@ -135,24 +172,20 @@
       <h2 class="section__heading reveal">Contact</h2>
 
       <div class="contact__card reveal">
-        <p class="contact__message">Dan is currently booking select engagements. Reach out via Instagram or YouTube.</p>
-
-        <div class="contact__socials">
-          <!-- Instagram -->
-          <a href="https://www.instagram.com" class="social__link" aria-label="Instagram" title="Dan on Instagram" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.8"/>
-              <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/>
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-            </svg>
-          </a>
-          <!-- YouTube -->
-          <a href="https://youtu.be/CX0kmQSoet8" class="social__link" aria-label="YouTube" title="Dan on YouTube" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M10 9l5 3-5 3V9z" fill="currentColor"/>
-            </svg>
-          </a>
+        <div class="contact__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="10" width="40" height="28" rx="4" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M4 14l20 14L44 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="contact__heading">Available for Engagements</h3>
+        <p class="contact__message">Dan is currently accepting select bookings for live performances, studio sessions, and collaborations. If you're interested in working together, get in touch — details coming soon.</p>
+        <div class="contact__cta-group">
+          <a href="https://youtu.be/CX0kmQSoet8" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+          <span class="contact__availability">
+            <span class="contact__dot" aria-hidden="true"></span>
+            Available for booking
+          </span>
         </div>
       </div>
     </div>
@@ -160,7 +193,10 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p>&copy; 2026 Dan. All rights reserved.</p>
+    <div class="footer__inner">
+      <p class="footer__name">Dan</p>
+      <p class="footer__copy">&copy; 2026 Dan. All rights reserved.</p>
+    </div>
   </footer>
 
   <script src="main.js"></script>

@@ -23,31 +23,47 @@
 (function initBurger() {
   const burger = document.getElementById('navBurger');
   const mobileNav = document.getElementById('navMobile');
+  const overlay = document.getElementById('navOverlay');
   if (!burger || !mobileNav) return;
 
   let isOpen = false;
 
-  function toggleMenu() {
-    isOpen = !isOpen;
+  function toggleMenu(forceClose) {
+    isOpen = forceClose ? false : !isOpen;
     mobileNav.classList.toggle('open', isOpen);
+    burger.classList.toggle('open', isOpen);
     burger.setAttribute('aria-expanded', String(isOpen));
+    mobileNav.setAttribute('aria-hidden', String(!isOpen));
+    if (overlay) overlay.classList.toggle('active', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
   }
 
-  burger.addEventListener('click', toggleMenu);
+  burger.addEventListener('click', () => toggleMenu());
 
   // Close on link click
   mobileNav.querySelectorAll('.nav__mobile-link').forEach(link => {
     link.addEventListener('click', () => {
-      if (isOpen) toggleMenu();
+      if (isOpen) toggleMenu(true);
     });
   });
 
-  // Close on outside click
+  // Close on overlay click
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      if (isOpen) toggleMenu(true);
+    });
+  }
+
+  // Close on outside click (fallback)
   document.addEventListener('click', (e) => {
-    if (isOpen && !mobileNav.contains(e.target) && !burger.contains(e.target)) {
-      toggleMenu();
+    if (isOpen && !mobileNav.contains(e.target) && !burger.contains(e.target) && !overlay?.contains(e.target)) {
+      toggleMenu(true);
     }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) toggleMenu(true);
   });
 })();
 
@@ -104,4 +120,27 @@
       child.style.transitionDelay = `${i * 0.12}s`;
     });
   });
+})();
+
+/* --- Active nav link on scroll ---------------------------- */
+(function initActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav__links a');
+  if (!sections.length || !navLinks.length) return;
+
+  function setActive() {
+    const scrollY = window.scrollY + 120;
+    let current = '';
+    sections.forEach(section => {
+      if (section.offsetTop <= scrollY) {
+        current = section.id;
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+    });
+  }
+
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
 })();
