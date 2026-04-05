@@ -489,6 +489,17 @@ ul { list-style: none; }
    ============================================================ */
 .bio {
   background: var(--bg);
+  position: relative;
+}
+
+.bio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.2) 30%, rgba(201,168,76,0.3) 50%, rgba(201,168,76,0.2) 70%, transparent);
 }
 
 .bio__card {
@@ -621,11 +632,52 @@ ul { list-style: none; }
   border-color: rgba(201, 168, 76, 0.6);
 }
 
+.bio__influences {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.bio__influences-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+
+.bio__influence {
+  font-size: 0.8rem;
+  color: rgba(201, 168, 76, 0.65);
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+.bio__influence-sep {
+  color: var(--border);
+  font-size: 0.75rem;
+}
+
 /* ============================================================
    MUSIC — YOUTUBE EMBED
    ============================================================ */
 .music {
-  background: #0d0d0d;
+  background: linear-gradient(180deg, #0d0d0d 0%, #111008 100%);
+  position: relative;
+}
+
+.music::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.15) 30%, rgba(201,168,76,0.25) 50%, rgba(201,168,76,0.15) 70%, transparent);
 }
 
 .music__embed-wrap {
@@ -657,11 +709,31 @@ ul { list-style: none; }
   display: block;
 }
 
+.music__caption {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 4px;
+}
+
 /* ============================================================
    CONTACT
    ============================================================ */
 .contact {
-  background: #0d0d0d;
+  background: linear-gradient(180deg, #0e0c08 0%, #0a0a0a 100%);
+  position: relative;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.15) 30%, rgba(201,168,76,0.25) 50%, rgba(201,168,76,0.15) 70%, transparent);
 }
 
 .contact__card {
@@ -670,6 +742,7 @@ ul { list-style: none; }
   border-radius: var(--radius);
   padding: 60px 52px;
   max-width: 620px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -775,8 +848,16 @@ ul { list-style: none; }
   .nav__links { display: none; }
   .nav__burger { display: flex; }
 
+  .section__label,
+  .section__heading,
   .section__sub {
+    text-align: center;
     max-width: 100%;
+  }
+
+  .section__sub {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .bio__card {
@@ -795,6 +876,7 @@ ul { list-style: none; }
   }
 
   .bio__tags { justify-content: center; }
+  .bio__influences { justify-content: center; }
 
   .contact__card {
     padding: 36px 28px;
