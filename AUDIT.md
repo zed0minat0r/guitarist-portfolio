@@ -2,7 +2,7 @@
 **Date:** 2026-04-04
 **Auditor:** Nigel (strict UX/design auditor)
 **Benchmark:** Premium independent artist portfolio sites
-**Scope:** index.html, style.css, main.js — v4 state
+**Scope:** index.html, style.css, main.js — v5 state
 
 ---
 
@@ -13,17 +13,20 @@
 | v1 | 2026-04-04 | 5.8 | Launch: bio only, placeholder music cards, no meta |
 | v2 | 2026-04-04 | 6.2 | Real YouTube embed, Open Graph / Twitter Card meta, real YouTube social link |
 | v3 | 2026-04-04 | 6.4 | Gallery section removed, iframe lazy-loading added, contact copy tightened |
-| v4 | 2026-04-04 | 6.3 | Dan's real photo added in bio avatar — strong improvement to credibility; contact still a dead end; broken social links gone but replaced by nothing actionable |
+| v4 | 2026-04-04 | 6.3 | Dan's real photo added in bio avatar — strong bio credibility gain; contact still dead end |
+| v5 | 2026-04-04 | 6.5 | "Coming soon" copy removed; contact copy rewritten to direct YouTube contact; bio backstory added (jam bands → bluegrass → prog); contact availability indicator retained |
 
 ---
 
-## Overall Score: 6.3 / 10
+## Overall Score: 6.5 / 10
 
 > 5.0 = average/basic | 6.0 = generic template | 7.0 = genuinely better than most (HIGH bar) | 8.0 = user would choose this over other artist portfolios
 
-**Note on the score:** v4 scores 6.3 — marginally below v3's 6.4. The addition of Dan's real photo (`images/dan.jpg`) in the bio avatar is the most meaningful improvement in multiple versions and would normally warrant a score increase. It has been factored positively. The slight overall drop reflects a fresh re-read of the site in its current state: the contact section still provides zero actionable path for a booking inquiry, the music section has a single video with apologetic copy ("more performances coming soon"), and the bio prose — while nicely formatted — is still generic enough to describe any neoclassical guitarist. The photo raises the credibility of the bio section specifically; it does not fix the funnel.
+**Note on the score:** v5 earns 6.5 — a genuine step up from v4. The bio has been materially improved: the jam band / bluegrass / progressive rock origin story is specific, credible, and gives Dan a distinct path that separates him from the typical "I grew up listening to Yngwie and practiced scales" neoclassical guitarist bio. The contact copy is now honest — it acknowledges no email is available and directs to YouTube. That's better than a fake mechanism. The apologetic "coming soon" language is gone.
 
-The site looks professional. A music fan browsing artist sites will stay for the video. After the video they will want to follow or contact Dan and discover there is no way to do either.
+The site still has a hard ceiling at 6.5 because: (1) there is no real way to contact or book Dan, (2) there is still only one piece of music evidence, and (3) a real music fan or booking agent who watches the one video and wants more is left with nowhere to go.
+
+The design is working. The content pipeline is not.
 
 ---
 
@@ -31,125 +34,125 @@ The site looks professional. A music fan browsing artist sites will stay for the
 
 | Category | Score | Notes |
 |---|---|---|
-| Visual Design | 6.8 | Real photo in avatar is a big improvement; hero is still visually anonymous |
-| Mobile UX (375px) | 6.1 | Photo scales and crops well in the 116px circle; hero "Dan" name too large; burger open/close animation works correctly |
-| Content Quality | 5.6 | Photo adds one real, specific thing; bio prose still generic; one video; contact is a dead end |
-| Typography | 6.8 | Playfair + Inter pairing is correct; section label at 0.7rem is too small on mobile |
-| Animations / Polish | 6.5 | Spinning avatar ring around real photo looks polished; floating notes still feel gimmicky |
-| Contact / Booking UX | 4.5 | Green "available" dot with no booking mechanism is actively misleading — no email, no form, no link to reach Dan |
-| Overall Artist Feel | 6.3 | A real face changes the feeling of the bio section meaningfully; rest of the site still reads as a placeholder shell |
+| Visual Design | 6.8 | Palette, type, and spacing all disciplined; hero remains anonymous |
+| Mobile UX (375px) | 6.5 | Photo crops well; bio card mobile treatment is correct; centered long-form copy still hard to scan |
+| Content Quality | 6.3 | Bio backstory is now genuinely good; rest of site still thin; one video |
+| Typography | 7.0 | Playfair + Inter pairing is correct; sizing hierarchy clean; section labels at 0.7rem marginal on mobile |
+| Animations / Polish | 6.5 | Staff lines + floating notes are tasteful; spinning avatar ring works well with real photo |
+| Contact / Booking UX | 5.5 | YouTube redirect is honest but not functional as a booking path; pulsing green dot misleads |
+| Overall Artist Feel | 6.5 | Bio now has real personality; one video is still the entire proof of craft |
 
 ---
 
 ## Detailed Findings
 
-### 1. CRITICAL — Contact Section Is a Dead End (Unchanged, Still the Ceiling)
+### 1. CRITICAL — Contact Section Cannot Close a Booking (Score ceiling)
 
-The contact section displays a pulsing green availability dot and the heading "Available for Engagements." The body copy says "Dan is currently accepting select bookings for live performances, studio sessions, and collaborations." The CTA is a YouTube link. There is no email address, no contact form, no booking link, no manager handle — nothing.
+The contact section says "Watch the performance above, then reach out via YouTube to connect." The primary CTA is "Watch on YouTube." There is a pulsing green availability dot labeled "Available for booking."
 
-This is not a design problem. It is a funnel problem. A booking agent, venue promoter, or collaborator who watches the video and wants to hire Dan has zero way to proceed. The green availability dot actively misleads: it signals readiness that cannot be acted on.
+This is an honest admission that no email is ready — which is better than a fake form. But the user experience is broken. A booking agent who has just watched the video does not want to: leave the portfolio site → navigate to YouTube → find the video → write a comment or DM — and hope Dan checks it. That is a five-step process with no guaranteed delivery. Most agents will close the tab.
 
-**Minimum fix:** A `mailto:` link with Dan's booking email would make this site functional as a professional portfolio. This is the single highest-impact change available.
+The pulsing green dot actively misleads. "Available for booking" sets an expectation that the section then cannot fulfill. If no booking mechanism exists, remove the availability indicator or change it to "Building presence — stay tuned."
 
-### 2. CRITICAL — One Video with Apologetic Copy ("More performances coming soon")
+**This is the single highest-impact fix available. An email address pushes this site to 7.0+.**
 
-The Music section has one embedded YouTube video. The sub-heading beneath the section title reads: *"A glimpse into the sound — more performances coming soon."* This copy does two harmful things at once:
+---
 
-1. It signals to the visitor that the catalog is thin — they now know before watching that this is the only video.
-2. It frames the site as under construction, which undermines the polished visual design.
+### 2. HIGH — One Video Is the Entire Music Catalog
 
-A site that looks this professional should not apologetically acknowledge that it only has one piece of content. Either remove that sentence and let the video stand on its own, or add 2–3 additional YouTube links styled as simple cards. "More coming soon" is placeholder copy that survived multiple iterations and should be cut.
+The Music section has one embedded video. The bio promises "compositional precision," "a full-speed neoclassical run," "a held note that says more than the run did," and four distinct influences (Petrucci, Vai, Buckethead, Yngwie). These are four very different guitarists. A visitor who knows the genre will want evidence of range.
 
-### 3. HIGH — Bio Prose Is Generic and Could Describe Any Neoclassical Guitarist
+One video cannot carry that weight. The bio raises expectations that a single embed cannot meet.
 
-The bio is well-formatted and nicely structured with the italic intro block and gold left-border. The photo makes the card feel real. But the actual text contains zero information specific to Dan:
+**Minimum fix:** A "More on YouTube →" link below the embed costs nothing and stops the music section from feeling like the end of the catalog. If additional recordings exist, even 2–3 thumbnail cards linking to YouTube would transform this from "one video" to "a body of work."
 
-- "relentless pursuit of beauty" — generic
-- "bridges two worlds with fluency and intention" — generic
-- "compositions are architectural — layered, deliberate, and expressive" — could describe any composer
-- "Based on the East Coast, Dan is currently developing his debut recordings" — signals early-stage, unproven
+---
 
-A visitor who reads this bio cannot answer: *What is one of Dan's compositions called? What specifically sets his technique apart? Why did he come to neoclassical guitar?* These are the questions a real fan asks. The bio photo now gives the site a face; the bio text should give it a voice.
+### 3. HIGH — Hero Has No Visual Identity
 
-### 4. HIGH — "The Artist" Section Heading Is Generic Placeholder Copy
+Dan now has a real photo — it appears in the bio avatar section. The hero (full viewport, first impression) is still: dark background + animated staff lines + typography only. The background uses `dan.jpg` at `opacity: 0.18` and `grayscale(30%)`, which renders the photo so faint it reads as a texture rather than a person.
 
-The bio section heading is literally "The Artist." This is about as anonymous as possible for an artist portfolio. A fan scanning the page sees "About / The Artist" — two generic labels stacked on top of each other. Even replacing "The Artist" with "About Dan" would be more specific.
+At the point where a real photo exists, there is no strong reason for the hero to remain visually anonymous. Raising the hero background image to 28–35% opacity — or placing a styled performance image as a hero element rather than a background — would immediately elevate the site's first impression from "tasteful dark template" to "real musician."
 
-### 5. MEDIUM — Hero Has No Visual Identity — No Face, No Performance Shot
+---
 
-Dan's photo now exists on the site (in the bio avatar). The hero section — the full-viewport first impression — is still 100% typography on a near-black background with animated staff lines. The YouTube thumbnail is used as a low-opacity background (10% opacity, grayscale 60%), which is so subdued it is effectively invisible.
+### 4. MEDIUM — Centered Long-Form Text on Mobile Is Hard to Scan
 
-At the point where a real photo is available, there is no reason for the hero to remain visually anonymous. A low-opacity performance photo behind the hero text — at even 20–25% opacity — would transform the first impression from "tasteful dark template" to "this is a real musician."
+On mobile (375px), the contact card uses `align-items: center; text-align: center`. The contact body copy is 63 words of centered text in a narrow column. Centered long-form copy has lower readability than left-aligned — the ragged right edge at center is harder to track than a consistent left margin. The heading and CTA button being centered is fine; the paragraph body should be left-aligned even when the card is centered.
 
-### 6. MEDIUM — Floating Musical Note Symbols Are Decorative Noise
+---
 
-Five Unicode note characters (♩♪♫) float up through the hero at 1.8rem, staggered across an 8-second loop. The positioning places them horizontally across the middle of the hero — directly in and around the "Dan" name and subtitle text. At low opacity, they're not blocking readability. But they add visual noise without adding character. They read as "someone added a decoration" rather than a purposeful design choice. A more architectural treatment — e.g., a single treble clef as a large background watermark — would be more considered.
+### 5. MEDIUM — Floating Musical Note Symbols Are Decorative Noise
 
-### 7. MEDIUM — Bio Avatar Photo Crop Depends Heavily on Image Composition
+Five Unicode note characters (♩♪♫) float upward through the hero at 1.8rem, staggered across an 8-second animation loop. Their horizontal positions place them across the middle of the hero — directly in the spatial field around the "Dan" name and subtitle. At the opacity levels used (~0.6 peak), they don't block readability. But they add visual noise without adding character. A single large treble clef as a watermark element behind the hero text would be more architecturally considered.
 
-The 144px circular crop uses `object-position: center top`, which means the top-center of the image fills the circle. For a typical portrait photo this usually places the face correctly, but it's a fragile crop — if `dan.jpg` has significant headroom (sky, ceiling) the face may sit at the bottom edge of the circle. The `filter: grayscale(20%) contrast(1.05)` processing is subtle and appropriate; no issue there. This item is flagged as a watch: verify the photo looks correct in the actual rendered circle, especially at 116px on mobile (375px breakpoint).
+---
 
-### 8. LOW — Staff Lines Position Directly Behind Hero Text
+### 6. LOW — "Available for Booking" Indicator Without a Booking Path Is Misleading
 
-The animated staff lines are centered at `top: 50%` — which on most screen heights places them directly behind the hero heading and subtitle text. The opacity (0.06–0.1) keeps them subtle enough not to block readability. But they compete spatially with the text they were meant to frame. Positioning them lower (e.g., `top: 60–65%`) would place them more naturally under the text content, reading as a musical ground rather than an interference pattern.
+The pulsing green dot and "Available for booking" label are strong micro-UX details — in the right context. That context is a site that can actually field a booking inquiry. Without a contact mechanism, the indicator raises a signal that the site cannot act on. Either add the mechanism, or temporarily change the label to something neutral like "Building presence — reach out via YouTube."
 
-### 9. LOW — Section Labels at 0.7rem Are Too Small on Mobile
+---
 
-`.section__label` renders at `font-size: 0.7rem` (11.2px effective) with `letter-spacing: 0.3em`. At this size and tracking, the labels ("ABOUT," "FEATURED PERFORMANCE," "GET IN TOUCH") are near the limit of comfortable readability on a mobile screen. WCAG practical guidance is 12px minimum for supplementary text. Raising to `0.75rem` would clear this threshold with no visible design impact.
+### 7. LOW — Section Labels at 0.7rem Are Marginal on Mobile
 
-### 10. LOW — Missing Performance Metadata
+`.section__label` renders at `font-size: 0.7rem` (11.2px effective) with `letter-spacing: 0.3em`. On mobile screens this is near the floor of comfortable readability. WCAG practical guidance is 12px minimum for supplementary text. Raising to `0.75rem` resolves this with no visible design impact.
 
-The YouTube embed has no visible title, description, or date beneath it. A user who watches and wants to find the video later has no anchor — no "Paganini Canon in D — Live Recording, 2025" or equivalent. Contextualizing the embed with even a brief text label ("Op. 26 in A minor — Dan, 2025") would make the Music section feel like a real performance catalog entry rather than a floating iframe.
+---
 
-### 11. LOW — Missing SEO Basics
+### 8. LOW — Open Graph Missing `og:url`
 
-Three lightweight items absent:
-- `<link rel="canonical">` — GitHub Pages serves multiple URL variants; canonical prevents split ranking signals
-- `<meta property="og:url">` — OG implementation is otherwise complete but missing this property
-- No `<meta name="robots">` or `<link>` for structured data (Schema.org `MusicGroup` / `Person`) — low effort, meaningful discoverability gain for a musician building a presence
+The OG meta block is otherwise complete (title, description, image, type). `og:url` is absent. This is a minor omission — add `<meta property="og:url" content="https://zed0minat0r.github.io/guitarist-portfolio/" />`.
+
+---
+
+### 9. LOW — Footer Has No Genre Anchor
+
+The footer is "Dan" + copyright line. A one-line descriptor ("Progressive Rock · Neoclassical Guitar") below the name would reinforce the brand at scroll-end and give the footer purposeful content instead of a legal minimum.
 
 ---
 
 ## Top 3 Priorities to Reach 7.0
 
 ### Priority 1 — Add a Real Contact Mechanism
-Add a working booking email (`mailto:` link) or a basic contact form. The green availability indicator signals that bookings are open; the section must then provide a way to book. Without this, the site cannot function as a professional portfolio — it is a design demonstration. This one fix would push the site from "beautiful placeholder" to "functional artist presence" and is worth an estimated +0.4 to the overall score.
+A working `mailto:` booking email is the single highest-value addition available. The green availability dot, the clean contact card, the confident "Available for Bookings" heading — all of this infrastructure is already built and waiting for a real action behind it. One email address unlocks the entire contact section and is estimated at +0.4 to overall score.
 
-### Priority 2 — Remove "More performances coming soon" / Add a Second Video or Linked Track
-Cut the apologetic sub-copy from the Music section. If there are any additional YouTube recordings, link to them as simple cards beneath the embed. If not, let the single video stand without qualifying it. "Coming soon" language communicates scarcity and undermines the professional aesthetic the design achieves everywhere else.
+### Priority 2 — Add a Second Video or "More on YouTube" Link
+The bio sets an expectation of range and depth. One video cannot fulfill it. Even a row of 2–3 thumbnail links to other YouTube recordings — or a styled "More Performances →" link below the embed — closes the gap between the bio's promise and the music section's delivery. Estimated at +0.2 to overall score.
 
-### Priority 3 — Rewrite the Bio with One Specific, Personal Detail
-The photo is now there. Give it a voice. Replace the generic bio paragraphs with content that answers at least one of these: What is a real composition of Dan's called? What specific technique defines his playing? What was the moment he chose neoclassical guitar? Specificity is what separates an artist bio from an SEO-optimized genre description.
+### Priority 3 — Raise Hero Background Photo Opacity
+Dan's real photo is now available. Use it more boldly in the hero. Raising `opacity: 0.18` to `0.28–0.35` on the hero background image — or removing the heavy `grayscale(30%)` filter — would transform the first impression from "anonymous dark design" to "real musician's site." This is a one-line CSS change. Estimated at +0.1–0.2 to overall score.
 
 ---
 
 ## What's Working Well (Do Not Break)
 
-- **Real photo in bio avatar** — the spinning gold ring around a real face is the site's strongest personal detail. Keep it.
-- **Playfair Display + Inter pairing** — correct for the genre, well-weighted, readable at all sizes
-- **Dark gold palette** — restrained, genre-appropriate, never over-applied
-- **SVG section dividers** — subtle ornamental touch that adds craft without clutter
-- **YouTube thumbnail as hero background** — clever reuse of available assets even at 10% opacity
-- **Animated staff concept** — the right idea for this genre (execution can be refined but the concept is valid)
-- **IntersectionObserver scroll reveal** — correctly respects `prefers-reduced-motion`; smooth and unobtrusive
-- **Mobile burger menu** — overlay, Escape-key close, body scroll-lock, and ARIA states all correctly implemented
-- **Active nav link tracking on scroll** — works correctly; good detail that most template sites miss
-- **`loading="lazy"` on iframe** — correct and impactful on mobile connections
-- **Open Graph / Twitter Card meta** — complete and correct (missing only `og:url`)
-- **Contact section availability indicator** — visually strong; just needs a real mechanism behind it
+- **Bio backstory (v5 addition)** — "Dan started on guitar in the deep end — jam bands, where the rule is listen first and play second. Bluegrass sharpened his right hand." This is specific, credible, and distinctive. Keep it exactly.
+- **"Dan absorbed all of it and built something that sounds like none of it"** — strongest line on the site. Preserve it.
+- **Real photo in bio avatar with spinning gold ring** — this detail is what separates the bio section from anonymous template cards. The circular crop, the ring animation, the `grayscale(20%) contrast(1.05)` processing — all correct.
+- **Playfair Display + Inter pairing** — genre-appropriate, well-weighted, readable at all sizes
+- **Dark gold palette (#0a0a0a + #c9a84c + #f5f0e8)** — restrained, consistent, never over-applied
+- **Gold left-border on bio intro quote** — correct use of editorial formatting; correctly converts to border-top on mobile
+- **SVG section dividers** — subtle ornamental detail that adds craft
+- **Mobile burger menu** — overlay, Escape-key close, body scroll-lock, ARIA states all correctly implemented
+- **IntersectionObserver scroll reveal** — respects `prefers-reduced-motion`; unobserves after first fire
+- **Active nav link tracking on scroll** — works correctly; most template sites miss this
+- **`loading="lazy"` on iframe** — correct; meaningful on mobile connections
+- **Open Graph / Twitter Card meta** — nearly complete; just add `og:url`
+- **Animated staff lines concept** — thematic and restrained; the right idea for this genre
 
 ---
 
 ## What Would Push This to 7.5+
 
-1. Working contact mechanism (email or form)
-2. 2–3 performances with real titles
-3. Bio rewritten with specific personal detail and a confident voice
-4. Hero with Dan's photo at low opacity (or a performance shot)
-5. "More performances coming soon" removed
-6. Social links (real ones only — no fake handles)
-7. Section backgrounds with slightly more differentiation for visual rhythm
+1. Working booking email or contact form
+2. 2–3 performances with real titles and dates
+3. Hero background photo at higher opacity (a real face in the first impression)
+4. Bio already has the voice — now needs one specific composition title or technique detail
+5. Real social links (only when actual accounts exist)
+6. `og:url` meta tag added
+7. Footer with genre descriptor
 
 ---
 
-*Audit by Nigel — strict from a real user's perspective. Score starts at 5.0 for "it loads and looks intentional." v4 earns 6.3: Dan's real photo is the most meaningful single improvement in the site's history and raises the bio section from "anonymous card" to "real artist profile." But the contact section still cannot close a booking, the music section still apologizes for having one video, and the bio text still says nothing specific about who Dan is. Fix those three things and this site clears 7.0.*
+*Audit by Nigel — scored strictly from a real user's perspective. v5 earns 6.5: the bio origin story is the strongest content upgrade the site has seen, and the contact copy is now honest rather than broken. The ceiling is the contact section — a site that looks this professional but cannot field a booking inquiry is not yet a working portfolio tool. Fix that, add a second video reference, and this site earns 7.0.*
